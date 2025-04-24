@@ -4,7 +4,7 @@ resource teleport_workload_identity "mwi_demo_aws_manager" {
     description = "Workload Identity for AWS manager IaC process"
     labels = {
       "env" = "mwi-demo"
-      "aws_account" = "dev-rel-staging"
+      "aws-account" = "dev-rel-staging"
     }
   }
 
@@ -23,7 +23,10 @@ resource teleport_role "mwi_demo_aws_manager" {
   
   spec = {
     allow = {
-      workload_identity_labels = teleport_workload_identity.mwi_demo_aws_manager.metadata.labels
+      workload_identity_labels = {
+        "env" = [teleport_workload_identity.mwi_demo_aws_manager.metadata.labels["env"]]
+        "aws-account" = [teleport_workload_identity.mwi_demo_aws_manager.metadata.labels["aws-account"]]
+      }
       rules = [
         {
           resources = ["workload_identity"]
