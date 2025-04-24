@@ -1,0 +1,12 @@
+kind: token
+version: v2
+metadata:
+  name: hcp-terraform
+spec:
+  roles: [Bot]
+  join_method: terraform_cloud
+  bot_name: teleport-terraform
+  terraform_cloud:
+    allow:
+      - organization_name: teleport_product_tests
+        workspace_name: mwi_demo_cluster
