@@ -1,6 +1,6 @@
 resource teleport_workload_identity "mwi_demo_aws_manager" {
   metadata = {
-    name = "mwi_demo_aws_manager"
+    name = "mwi-demo-aws-manager"
     description = "Workload Identity for AWS manager IaC process"
     labels = {
       "env" = "mwi-demo"
@@ -10,7 +10,7 @@ resource teleport_workload_identity "mwi_demo_aws_manager" {
 
   spec = {
     spiffe = {
-      id = "/infra/aws-staging-management"
+      id = "/infra/mwi-demo-aws-manager"
     }
   }
 }
