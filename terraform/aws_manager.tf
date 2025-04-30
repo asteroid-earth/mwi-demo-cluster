@@ -1,4 +1,5 @@
 resource teleport_workload_identity "mwi_demo_aws_manager" {
+  version = "v1"
   metadata = {
     name = "mwi-demo-aws-manager"
     description = "Workload Identity for AWS manager IaC process"
