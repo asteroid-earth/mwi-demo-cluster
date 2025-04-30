@@ -44,3 +44,20 @@ resource teleport_bot "mwi_demo_aws_manager" {
     teleport_role.mwi_demo_aws_manager.metadata.name,
   ]
 }
+
+resource "teleport_provision_token" "mwi_demo_aws_manager" {
+  version = "v2"
+  metadata = {
+    name = "mwi-demo-aws-manager"
+  }
+  spec = {
+    roles       = ["Bot"]
+    bot_name    = "mwi-demo-aws-manager"
+    join_method = "github"
+    github = {
+      allow = [{
+        repository = "asteroid-earth/mwi-demo-infra"
+      }]
+    }
+  }
+}
