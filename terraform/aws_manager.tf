@@ -76,6 +76,7 @@ resource "teleport_provision_token" "mwi_demo_aws_manager" {
     github = {
       allow = [{
         repository = "asteroid-earth/mwi-demo-infra"
+        ref = "ref/heads/main"
       }]
       enterprise_slug = "teleport"
     }
