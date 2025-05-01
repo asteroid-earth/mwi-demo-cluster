@@ -49,7 +49,7 @@ resource teleport_role "mwi_demo_infra_token_creator" {
       rules = [
         {
           resources = ["token"]
-          verbs = ["read, list, create, update"]
+          verbs = ["read", "list", "create", "update"]
         }
       ]
     }
