@@ -73,10 +73,10 @@ resource "teleport_provision_token" "mwi_demo_aws_manager" {
     roles       = ["Bot"]
     bot_name    = "mwi-demo-aws-manager"
     join_method = "github"
-    enterprise_slug = "teleport"
     github = {
       allow = [{
         repository = "asteroid-earth/mwi-demo-infra"
+        enterprise_slug = "teleport"
       }]
     }
   }
