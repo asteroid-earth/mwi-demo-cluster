@@ -60,7 +60,7 @@ resource teleport_bot "mwi_demo_aws_manager" {
   name = "mwi-demo-aws-manager"
   roles = [
     teleport_role.mwi_demo_aws_manager.metadata.name,
-    teleport_provision_token.mwi_demo_infra_token_creator.metadata.name
+    teleport_role.mwi_demo_infra_token_creator.metadata.name
   ]
 }
 
