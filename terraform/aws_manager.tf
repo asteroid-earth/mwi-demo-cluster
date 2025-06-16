@@ -38,10 +38,10 @@ resource teleport_role "mwi_demo_aws_manager" {
   }
 }
 
-resource teleport_role "mwi_demo_infra_token_creator" {
+resource teleport_role "mwi_demo_infra_resource_creator" {
   version = "v7"
   metadata = {
-    name = "mwi-demo-infra-token-creator"
+    name = "mwi-demo-infra-resource-creator"
   }
   
   spec = {
@@ -49,7 +49,15 @@ resource teleport_role "mwi_demo_infra_token_creator" {
       rules = [
         {
           resources = ["token"]
-          verbs = ["read", "list", "create", "update"]
+          verbs = ["read", "list", "create", "update"],
+        },
+        {
+          resources = ["role"]
+          verbs = ["read", "list", "create", "update"],
+        },
+        {
+          resources = ["bot"]
+          verbs = ["read", "list", "create", "update"],
         }
       ]
     }
@@ -60,7 +68,7 @@ resource teleport_bot "mwi_demo_aws_manager" {
   name = "mwi-demo-aws-manager"
   roles = [
     teleport_role.mwi_demo_aws_manager.metadata.name,
-    teleport_role.mwi_demo_infra_token_creator.metadata.name
+    teleport_role.mwi_demo_infra_resource_creator.metadata.name
   ]
 }
 
@@ -76,7 +84,6 @@ resource "teleport_provision_token" "mwi_demo_aws_manager" {
     github = {
       allow = [{
         repository = "asteroid-earth/mwi-demo-infra"
-        ref = "ref/heads/main"
       }]
       enterprise_slug = "teleport"
     }
