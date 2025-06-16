@@ -13,3 +13,9 @@ via `tctl create -f` so that HCP Terraform can do runs against the Teleport clus
 a SPIFFE ID for a bot that can manage an AWS account. This is used in the MWI Demo 
 Resources repo in a GitHub Action to create and manage resources for the demo 
 environment using Terraform.
+
+Using HCP Terraform through a GitHub integration, it manages resources in the
+[MWI Demo Teleport cluster](https://mwidemo.cloud.gravitational.io)
+used in the main [MWI Infra repository](https://github.com/asteroid-earth/mwi-demo-infra).
+
+* 
