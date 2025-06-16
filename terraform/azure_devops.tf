@@ -6,7 +6,7 @@ resource teleport_role "mwi_demo_azure_devops" {
   
   spec = {
     allow = {
-      nodeLabels = {
+      node_labels = {
         "env" = ["mwi-demo"]
       },
       logins = ["ubuntu"]
