@@ -32,6 +32,7 @@ resource teleport_provision_token "mwi_demo_gha_ssh" {
     bot_name    = "mwi-demo-gha-ssh"
     join_method = "github"
     github = {
+      enterprise_slug = "teleport"
       allow = [{
         repository = "asteroid_earth/mwi-demo-cluster"
         ref_type   = "branch"
